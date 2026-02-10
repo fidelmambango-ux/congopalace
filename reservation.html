@@ -23,19 +23,19 @@
         <input type="email" id="email" placeholder="Email" required>
         <input type="tel" id="tel" placeholder="Téléphone" required>
 
-        <label>Date d'arrivée</label>
-        <input type="date" id="arrivee" required>
+   <select id="chambre">
+    <option value="50">Chambre Simple - 50$</option>
+    <option value="80">Chambre Standard - 80$</option>
+    <option value="120">Chambre VIP - 120$</option>
+</select>
 
-        <label>Date de sortie</label>
-        <input type="date" id="sortie" required>
+<input type="date" id="arrivee">
+<input type="date" id="depart">
 
-        <label>Choisir la chambre</label>
-        <select id="chambre" required>
-            <option value="">--Choisir--</option>
-            <option value="50">Chambre Simple - 50$</option>
-            <option value="80">Chambre Standard - 80$</option>
-            <option value="120">Chambre VIP - 120$</option>
-        </select>
+<input type="text" id="jours" placeholder="Nombre de jours" readonly>
+
+<h2>Total à payer : <span id="total">0</span> $</h2>
+
 
         <h3 id="jours">Nombre de jours : 0</h3>
         <h3 id="total">Total à payer : 0 $</h3>
@@ -83,3 +83,4 @@ document.getElementById("formReservation").addEventListener("submit", function(e
 
 </body>
 </html>
+
