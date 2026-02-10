@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Réservation</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+
+<div class="overlay">
+
+<nav>
+    <a href="index.html">Accueil</a>
+    <a href="chambres.html">Chambres</a>
+    <a href="reservation.html">Réservation</a>
+    <a href="contact.html">Contact</a>
+    <a href="apropos.html">A propos</a>
+</nav>
+
+<div class="container">
+    <h1>Réservation de chambre</h1>
+
+    <label>Choisir la chambre</label>
+    <select id="chambre" onchange="calculerTotal()">
+        <option value="50">Chambre Simple - 50$ / nuit</option>
+        <option value="120">Chambre VIP - 120$ / nuit</option>
+        <option value="200">Chambre Luxe - 200$ / nuit</option>
+    </select>
+
+    <label>Date d'arrivée</label>
+    <input type="date" id="arrivee" onchange="calculerTotal()">
+
+    <label>Date de départ</label>
+    <input type="date" id="depart" onchange="calculerTotal()">
+
+    <h2>Nombre de jours : <span id="nbjours">0</span></h2>
+    <h2>Total à payer : <span id="total">0</span> $</h2>
+
+   <label>Moyen de paiement</label>
+
+<select id="paiement" onchange="choixPaiement()">
+    <option value="">-- Choisir --</option>
+    <option value="mobile">Mobile Money</option>
+    <option value="carte">Carte Bancaire</option>
+    <option value="cash">Cash à l'hôtel</option>
+</select>
+
+<!-- Zone Mobile Money -->
+<div id="mobileBox" style="display:none;">
+    <input type="text" placeholder="Numéro Mobile Money">
+</div>
+
+<!-- Zone Carte Bancaire -->
+<div id="carteBox" style="display:none;">
+    <input type="text" placeholder="Numéro de carte">
+    <input type="text" placeholder="Date d'expiration">
+</div>
+
+    </select>
+
+<button onclick="validerReservation()">Valider la réservation</button>
+
+</div>
+
+</div>
+
+<script>
+function calculerTotal(){
+    let prix = parseInt(document.getElementById("chambre").value);
+
+    let arrivee = new Date(document.getElementById("arrivee").value);
+    let depart = new Date(document.getElementById("depart").value);
+
+    if(arrivee && depart && depart > arrivee){
+        let diffTime = depart - arrivee;
+        let jours = diffTime / (1000 * 3600 * 24);
+
+        document.getElementById("nbjours").innerText = jours;
+
+        let total = jours * prix;
+        document.getElementById("total").innerText = total;
+    }
+}
+
+function validerReservation(){
+    let total = document.getElementById("total").innerText;
+
+    if(total == "0"){
+        alert("Veuillez choisir les dates correctement !");
+    }else{
+        alert("Réservation confirmée !\nTotal à payer : " + total + " $\nMerci d'avoir choisi Congo Palace.");
+
+        // Vider le formulaire
+        document.getElementById("chambre").selectedIndex = 0;
+        document.getElementById("arrivee").value = "";
+        document.getElementById("depart").value = "";
+        document.getElementById("nbjours").innerText = "0";
+        document.getElementById("total").innerText = "0";
+    }
+}
+
+    
+
+</script>
+
+
+
+</body>
+</html>
