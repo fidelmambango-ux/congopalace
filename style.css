@@ -64,7 +64,7 @@ nav a:hover{color:gold}
 
 .hero{
     position:relative;
-    height:90vh;
+    height:50vh;
     overflow:hidden;
 }
 .hero img{
@@ -87,7 +87,7 @@ nav a:hover{color:gold}
     100%{transform:scale(1.2)}
 }
 @keyframes slide{
-    0%{transform:translate(-50%,-150%);opacity:0}
+    0%{transform:translate(-50%,-100%);opacity:0}
     100%{transform:translate(-50%,-50%);opacity:1}
 }
 
@@ -98,7 +98,7 @@ nav a:hover{color:gold}
 }
 
 input,select,button{
-    width:100%;
+    width:10%;
     padding:10px;
     margin:10px 0;
 }
@@ -110,6 +110,7 @@ button{
     cursor:pointer;
 }
 button:hover{background:gold;color:black}
+
 
 
 
